@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper</title>
+    <script src="./js/loadJson.js" type="text/javascript"></script>
+    <script src="./js/hanzi-writer.js"></script>
+    <script src="./js/mouse-effect-init.js" type="text/javascript"></script>
+    <link href="./css/water-reflection.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./css/search-bar.css">
+</head>
+<body>
+    <form action="" id="search_form">
+        <input type="search" placeholder="Search here ..." id="search_keyword">
+        <i class="fa fa-search"></i>
+    </form>
+    <canvas class="banner_canvas" id="canvas_banner"></canvas>
+    <svg style="position: relative;" width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" id="svg_refl">
+        <use href="#everything">
+        </use>
+        <g filter="url(#reflection)">
+            <use href="#everything" transform="scale (1.1, -.33) translate(0 -512)" transform-origin="center" opacity="0.5" />
+        </g>
+        <defs>
+            <g id="everything">
+                <use href="#wave" x="256" y="196" />
+                <use href="#morph1" x="256" y="196" />
+                <use href="#morph2" x="256" y="196" />
+                <use href="#morph3" x="256" y="196" />
+                <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.7 0 0.3 1; 0.7 0 0.3 1" values="0 -16; 0 16; 0 -16" />
+            </g>
+
+            <ellipse id="wave" stroke-width="12" stroke="#c3abd1">
+                <animate attributeName="rx" dur="2s" repeatCount="indefinite" calcMode="spline" begin="100ms" keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1" values="96;48;132;182;182" />
+                <animate attributeName="ry" dur="2s" repeatCount="indefinite" calcMode="spline" begin="100ms" keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1" values="96;64;92;182;182" />
+                <animate attributeName="opacity" dur="2s" repeatCount="indefinite" calcMode="linear" begin="100ms" keyTimes="0;0.74;0.75;0.9;1" values="0;0;1;0;0" />
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite" />
+            </ellipse>
+            <ellipse id="morph1" rx="96" ry="96" stroke-width="12" stroke="#c3abd1">
+                <animate attributeName="rx" dur="2s" repeatCount="indefinite" calcMode="spline" begin="100ms" keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1" values="96;48;132;90;96" />
+                <animate attributeName="ry" dur="2s" repeatCount="indefinite" calcMode="spline" begin="100ms" keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1" values="96;64;92;90;96" />
+                <animate attributeName="stroke" dur="2s" repeatCount="indefinite" begin="100ms" keyTimes="0;0.65;0.75;1" values="#c3abd1;#c3abd1;#908bbf;#c3abd1" />
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite" />
+            </ellipse>
+            <ellipse id="morph2" rx="76" ry="76" stroke-width="12" stroke="#908bbf">
+                <animate attributeName="rx" dur="2s" repeatCount="indefinite" calcMode="spline" begin="50ms" keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1" values="76;32;102;70;76" />
+                <animate attributeName="ry" dur="2s" repeatCount="indefinite" calcMode="spline" begin="50ms" keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1" values="76;44;72;70;76" />
+                <animate attributeName="stroke" dur="2s" repeatCount="indefinite" begin="100ms" keyTimes="0;0.65;0.75;1" values="#908bbf;#908bbf;#332765;#908bbf" />
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite" />
+            </ellipse>
+            <ellipse id="morph3" rx="56" ry="56" stroke-width="12" stroke="#332765" fill="#332765">
+                <animate attributeName="rx" dur="2s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1" values="56;20;72;50;56" />
+                <animate attributeName="ry" dur="2s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.65;0.75;0.9;1" keySplines="1 0 0.4 0.8; 0 0.7 1 1; 1 1 1 1; 1 1 1 1" values="56;20;42;50;56" />
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite" />
+            </ellipse>
+
+            <filter id="reflection">
+                <feTurbulence id="refl_turb" type="turbulence" numOctaves="2" result="turbulence" />
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="32" xChannelSelector="G" yChannelSelector="R" />
+                <animate id="anim_turb" dur="100s" href="#refl_turb" attributeName="baseFrequency" repeatCount="indefinite" values="0.005 0.05; 0.003 0.005; 0.005 0.05" />
+            </filter>
+
+            <linearGradient id="fresnel" gradientTransform="rotate(90)">
+                <stop offset="0" stop-color="#c3abd100" />
+                <stop offset="1" stop-color="#c3abd1a0" />
+            </linearGradient>
+        </defs>
+    </svg>
+    <div id="content">
+        <div class="div-content" id="0"></div>
+        <div class="div-content top-50" id="1"></div>
+        <div class="div-content" id="2"></div>
+        <div class="div-content top-50" id="3"></div>
+        <div class="div-content" id="4"></div>
+        <div class="div-content top-50" id="5"></div>
+        <div class="div-content" id="6"></div>
+        <div class="div-content top-50" id="7"></div>
+        <div class="div-content" id="8"></div>
+        <div class="div-content top-50" id="9"></div>
+        <div class="div-content" id="10"></div>
+        <div class="div-content top-50" id="11"></div>
+        <div class="div-content top-last" id="12"></div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="./js/mouse-smoke-effect.js" type="text/javascript"></script>
+<script src="./js/text-stroke.js" type="text/javascript"></script>
+<script src="./js/keypress-event.js" type="text/javascript"></script>
+</html>

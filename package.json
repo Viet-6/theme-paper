@@ -1,0 +1,34 @@
+{
+  "name": "electron_wallpaper",
+  "version": "1.0.0",
+  "description": "wallpaper",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "rm -r res/* && electron-forge make && unzip out/make/zip/linux/x64/electron_wallpaper-linux-x64-1.0.0.zip -d res/ && chmod -R 777 res/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Viet-6/electron_wallpaper.git"
+  },
+  "author": "V",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Viet-6/electron_wallpaper/issues"
+  },
+  "homepage": "https://github.com/Viet-6/electron_wallpaper#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+    "electron": "^28.1.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}

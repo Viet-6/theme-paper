@@ -1,0 +1,81 @@
+svg {
+    pointer-events: none;
+}
+
+body,html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body{
+  background-color: #c6c8de;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, #c3abd1 0%, #c6c8de 33%);
+}
+#svg_refl{
+  height: 100%;
+}
+
+.custom-border:before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    top: calc(2px/-1);
+    left: calc(2px/-1);
+    background: linear-gradient(to right, red 0%, red 100%), linear-gradient(to top, red 50%, transparent 50%), linear-gradient(to top, red 50%, transparent 50%), linear-gradient(to right, red 0%, red 100%), linear-gradient(to left, red 0%, red 100%);
+    background-size: 100% 2px, 2px 200%, 2px 200%, 0% 2px, 0% 2px;
+    background-position: 50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
+    background-repeat: no-repeat, no-repeat;
+    transition: transform 0.3s ease-in-out, background-position 0.3s ease-in-out, background-size 0.3s ease-in-out;
+    transform: scaleX(0) rotate(0deg);
+    transition-delay: 0.6s, 0.3s, 0s;
+}
+
+.border-animation:before {
+    background-size: 200% 2px, 2px 400%, 2px 400%, 55% 2px, 55% 2px;
+    background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+    transform: scaleX(1) rotate(0deg);
+    transition-delay: 0s, 0.3s, 0.6s;
+}
+
+.hide{
+  opacity: 0; 
+ }
+.fade-out {
+  transition:1s linear all;
+}
+
+#content {
+  width: 650px;
+  max-width: 650px;
+  min-width: 650px;
+}
+
+.div-content {
+  width: 50px;
+  max-width: 50px;
+  min-width: 50px;
+  height: 350px;
+  max-height: 350px;
+  min-height: 350px;
+  float: left;
+  position: relative;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.top-50 {
+  top: 50px;
+}
+
+.top-last {
+  top: 230px;
+  height: 108px!important;
+  max-height: 108px!important;
+  min-height: 108px!important;
+}

@@ -1,0 +1,87 @@
+form{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+    z-index: 1;
+}
+
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form.hovered{
+    width: 300px;
+    cursor: pointer;
+}
+
+form.hovered input{
+    display: block;
+}
+
+form.hovered .fa{
+    background: #07051a;
+    color: white;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+    0% {
+        opacity: 1;
+    }
+}
+form:not([open]) {
+    display: none;
+}
+form[open] {
+    animation: fade-in 1s cubic-bezier(.45,.05,.55,.95);
+}
+form[close] {
+    display: block;
+    animation: fade-out 1s cubic-bezier(.45,.05,.55,.95);
+    pointer-events: none;
+}
